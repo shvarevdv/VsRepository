@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ISFDSModelContainer" CdmEntityContainer="ISFDSEntities2">
+    <EntitySetMapping Name="NUs">
+      <EntityTypeMapping TypeName="ISFDSModel.NU">
+        <MappingFragment StoreEntitySet="NU">
+          <ScalarProperty Name="ID_NU" ColumnName="ID_NU" />
+          <ScalarProperty Name="N_NU" ColumnName="N_NU" />
+          <ScalarProperty Name="Modification" ColumnName="Modification" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
+          <ScalarProperty Name="Z" ColumnName="Z" />
+          <ScalarProperty Name="VX" ColumnName="VX" />
+          <ScalarProperty Name="VY" ColumnName="VY" />
+          <ScalarProperty Name="VZ" ColumnName="VZ" />
+          <ScalarProperty Name="t" ColumnName="t" />
+          <ScalarProperty Name="Vitok" ColumnName="Vitok" />
+          <ScalarProperty Name="Sbal" ColumnName="Sbal" />
+          <ScalarProperty Name="DateNU" ColumnName="DateNU" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DigitalMaps">
+      <EntityTypeMapping TypeName="ISFDSModel.DigitalMap">
+        <MappingFragment StoreEntitySet="DigitalMap">
+          <ScalarProperty Name="Id_Matr" ColumnName="Id_Matr" />
+          <ScalarProperty Name="Map" ColumnName="Map" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Engines">
+      <EntityTypeMapping TypeName="ISFDSModel.Engine">
+        <MappingFragment StoreEntitySet="Engine">
+          <ScalarProperty Name="ID_Engine" ColumnName="ID_Engine" />
+          <ScalarProperty Name="NameEngine" ColumnName="NameEngine" />
+          <ScalarProperty Name="Trust" ColumnName="Trust" />
+          <ScalarProperty Name="SpecificImpulse" ColumnName="SpecificImpulse" />
+          <ScalarProperty Name="FuelAmount" ColumnName="FuelAmount" />
+          <ScalarProperty Name="MaxTimeOfWorking" ColumnName="MaxTimeOfWorking" />
+          <ScalarProperty Name="TypeOfEngine" ColumnName="TypeOfEngine" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Maps">
+      <EntityTypeMapping TypeName="ISFDSModel.Map">
+        <MappingFragment StoreEntitySet="Map">
+          <ScalarProperty Name="Id_Matr" ColumnName="Id_Matr" />
+          <ScalarProperty Name="Map1" ColumnName="Map" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MassInertialCharacteristics">
+      <EntityTypeMapping TypeName="ISFDSModel.MassInertialCharacteristic">
+        <MappingFragment StoreEntitySet="MassInertialCharacteristic">
+          <ScalarProperty Name="ID_MIC" ColumnName="ID_MIC" />
+          <ScalarProperty Name="ID_Aero" ColumnName="ID_Aero" />
+          <ScalarProperty Name="Mass" ColumnName="Mass" />
+          <ScalarProperty Name="MassOfCommonBay" ColumnName="MassOfCommonBay" />
+          <ScalarProperty Name="MassOfDeorbitSpCr" ColumnName="MassOfDeorbitSpCr" />
+          <ScalarProperty Name="Sbal" ColumnName="Sbal" />
+          <ScalarProperty Name="XT" ColumnName="XT" />
+          <ScalarProperty Name="YT" ColumnName="YT" />
+          <ScalarProperty Name="ZT" ColumnName="ZT" />
+          <ScalarProperty Name="Liter" ColumnName="Liter" />
+          <ScalarProperty Name="DateOfID" ColumnName="DateOfID" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpacecraftInitialDatas">
+      <EntityTypeMapping TypeName="ISFDSModel.SpacecraftInitialData">
+        <MappingFragment StoreEntitySet="SpacecraftInitialData">
+          <ScalarProperty Name="SpacecraftInitDataId" ColumnName="SpacecraftInitDataId" />
+          <ScalarProperty Name="SpacecraftNumber" ColumnName="SpacecraftNumber" />
+          <ScalarProperty Name="InternationalNumber" ColumnName="InternationalNumber" />
+          <ScalarProperty Name="CCSANumber" ColumnName="CCSANumber" />
+          <ScalarProperty Name="NORADNumber" ColumnName="NORADNumber" />
+          <ScalarProperty Name="SpacecraftName" ColumnName="SpacecraftName" />
+          <ScalarProperty Name="SpacecraftType" ColumnName="SpacecraftType" />
+          <ScalarProperty Name="OrbitType" ColumnName="OrbitType" />
+          <ScalarProperty Name="ReboostBlockType" ColumnName="ReboostBlockType" />
+          <ScalarProperty Name="Launcher" ColumnName="Launcher" />
+          <ScalarProperty Name="DateOfLaunch" ColumnName="DateOfLaunch" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpacecraftsEngines">
+      <EntityTypeMapping TypeName="ISFDSModel.SpacecraftsEngine">
+        <MappingFragment StoreEntitySet="SpacecraftsEngines">
+          <ScalarProperty Name="SpacecragtsEngineId" ColumnName="SpacecragtsEngineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpaceсraftCommonData">
+      <EntityTypeMapping TypeName="ISFDSModel.SpaceсraftCommonData">
+        <MappingFragment StoreEntitySet="SpaceсraftCommonData">
+          <ScalarProperty Name="SpacecraftCommonDataId" ColumnName="SpacecraftCommonDataId" />
+          <ScalarProperty Name="EngineId" ColumnName="EngineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_NU_SpacecraftInitialData" TypeName="ISFDSModel.FK_NU_SpacecraftInitialData" StoreEntitySet="NU">
+      <EndProperty Name="SpacecraftInitialData">
+        <ScalarProperty Name="SpacecraftInitDataId" ColumnName="SpacecraftInitialData_ID" />
+      </EndProperty>
+      <EndProperty Name="NU">
+        <ScalarProperty Name="ID_NU" ColumnName="ID_NU" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_SpacecraftsMap_SpacecraftInitialData" TypeName="ISFDSModel.FK_SpacecraftsMap_SpacecraftInitialData" StoreEntitySet="DigitalMap">
+      <EndProperty Name="SpacecraftInitialData">
+        <ScalarProperty Name="SpacecraftInitDataId" ColumnName="SpacecraftInitDataId" />
+      </EndProperty>
+      <EndProperty Name="DigitalMap">
+        <ScalarProperty Name="Id_Matr" ColumnName="Id_Matr" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_SpacecraftInitialData_Engine" TypeName="ISFDSModel.FK_SpacecraftInitialData_Engine" StoreEntitySet="SpacecraftInitialData">
+      <EndProperty Name="Engine">
+        <ScalarProperty Name="ID_Engine" ColumnName="EngineID" />
+      </EndProperty>
+      <EndProperty Name="SpacecraftInitialData">
+        <ScalarProperty Name="SpacecraftInitDataId" ColumnName="SpacecraftInitDataId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_SpacecraftsEngines_Engine" TypeName="ISFDSModel.FK_SpacecraftsEngines_Engine" StoreEntitySet="SpacecraftsEngines">
+      <EndProperty Name="Engine">
+        <ScalarProperty Name="ID_Engine" ColumnName="EngineId" />
+      </EndProperty>
+      <EndProperty Name="SpacecraftsEngines">
+        <ScalarProperty Name="SpacecragtsEngineId" ColumnName="SpacecragtsEngineId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_SpaceCraftCommonData_MassInertialCharacteristic" TypeName="ISFDSModel.FK_SpaceCraftCommonData_MassInertialCharacteristic" StoreEntitySet="SpaceсraftCommonData">
+      <EndProperty Name="MassInertialCharacteristic">
+        <ScalarProperty Name="ID_MIC" ColumnName="MIC_Id" />
+      </EndProperty>
+      <EndProperty Name="SpaceсraftCommonData">
+        <ScalarProperty Name="SpacecraftCommonDataId" ColumnName="SpacecraftCommonDataId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_SpacecraftInitialData_MassInertialCharacteristic" TypeName="ISFDSModel.FK_SpacecraftInitialData_MassInertialCharacteristic" StoreEntitySet="SpacecraftInitialData">
+      <EndProperty Name="MassInertialCharacteristic">
+        <ScalarProperty Name="ID_MIC" ColumnName="MassInerCharacteristicId" />
+      </EndProperty>
+      <EndProperty Name="SpacecraftInitialData">
+        <ScalarProperty Name="SpacecraftInitDataId" ColumnName="SpacecraftInitDataId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_SpaceCraftCommonData_SpacecraftInitialData" TypeName="ISFDSModel.FK_SpaceCraftCommonData_SpacecraftInitialData" StoreEntitySet="SpaceсraftCommonData">
+      <EndProperty Name="SpacecraftInitialData">
+        <ScalarProperty Name="SpacecraftInitDataId" ColumnName="SpacecraftInitDataId" />
+      </EndProperty>
+      <EndProperty Name="SpaceсraftCommonData">
+        <ScalarProperty Name="SpacecraftCommonDataId" ColumnName="SpacecraftCommonDataId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_SpacecraftsEngines_SpacecraftInitialData" TypeName="ISFDSModel.FK_SpacecraftsEngines_SpacecraftInitialData" StoreEntitySet="SpacecraftsEngines">
+      <EndProperty Name="SpacecraftInitialData">
+        <ScalarProperty Name="SpacecraftInitDataId" ColumnName="SpacecraftInitDataId" />
+      </EndProperty>
+      <EndProperty Name="SpacecraftsEngines">
+        <ScalarProperty Name="SpacecragtsEngineId" ColumnName="SpacecragtsEngineId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ISFDSModel" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Хранилище ISFDSModelContainer">
+    <EntitySet Name="NU" EntityType="Хранилище ISFDSModel.NU" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DigitalMap" EntityType="Хранилище ISFDSModel.DigitalMap" store:Type="Tables" Schema="Spacecraft" />
+    <EntitySet Name="Engine" EntityType="Хранилище ISFDSModel.Engine" store:Type="Tables" Schema="Spacecraft" />
+    <EntitySet Name="Map" EntityType="Хранилище ISFDSModel.Map" store:Type="Tables" Schema="Spacecraft" />
+    <EntitySet Name="MassInertialCharacteristic" EntityType="Хранилище ISFDSModel.MassInertialCharacteristic" store:Type="Tables" Schema="Spacecraft" />
+    <EntitySet Name="SpacecraftInitialData" EntityType="Хранилище ISFDSModel.SpacecraftInitialData" store:Type="Tables" Schema="Spacecraft" />
+    <EntitySet Name="SpacecraftsEngines" EntityType="Хранилище ISFDSModel.SpacecraftsEngines" store:Type="Tables" Schema="Spacecraft" />
+    <EntitySet Name="SpaceсraftCommonData" EntityType="Хранилище ISFDSModel.SpaceсraftCommonData" store:Type="Tables" Schema="Spacecraft" />
+    <AssociationSet Name="FK_NU_SpacecraftInitialData" Association="Хранилище ISFDSModel.FK_NU_SpacecraftInitialData">
+      <End Role="SpacecraftInitialData" EntitySet="SpacecraftInitialData" />
+      <End Role="NU" EntitySet="NU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpaceCraftCommonData_MassInertialCharacteristic" Association="Хранилище ISFDSModel.FK_SpaceCraftCommonData_MassInertialCharacteristic">
+      <End Role="MassInertialCharacteristic" EntitySet="MassInertialCharacteristic" />
+      <End Role="SpaceсraftCommonData" EntitySet="SpaceсraftCommonData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpaceCraftCommonData_SpacecraftInitialData" Association="Хранилище ISFDSModel.FK_SpaceCraftCommonData_SpacecraftInitialData">
+      <End Role="SpacecraftInitialData" EntitySet="SpacecraftInitialData" />
+      <End Role="SpaceсraftCommonData" EntitySet="SpaceсraftCommonData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpacecraftInitialData_Engine" Association="Хранилище ISFDSModel.FK_SpacecraftInitialData_Engine">
+      <End Role="Engine" EntitySet="Engine" />
+      <End Role="SpacecraftInitialData" EntitySet="SpacecraftInitialData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpacecraftInitialData_MassInertialCharacteristic" Association="Хранилище ISFDSModel.FK_SpacecraftInitialData_MassInertialCharacteristic">
+      <End Role="MassInertialCharacteristic" EntitySet="MassInertialCharacteristic" />
+      <End Role="SpacecraftInitialData" EntitySet="SpacecraftInitialData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpacecraftsEngines_Engine" Association="Хранилище ISFDSModel.FK_SpacecraftsEngines_Engine">
+      <End Role="Engine" EntitySet="Engine" />
+      <End Role="SpacecraftsEngines" EntitySet="SpacecraftsEngines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpacecraftsEngines_SpacecraftInitialData" Association="Хранилище ISFDSModel.FK_SpacecraftsEngines_SpacecraftInitialData">
+      <End Role="SpacecraftInitialData" EntitySet="SpacecraftInitialData" />
+      <End Role="SpacecraftsEngines" EntitySet="SpacecraftsEngines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpacecraftsMap_SpacecraftInitialData" Association="Хранилище ISFDSModel.FK_SpacecraftsMap_SpacecraftInitialData">
+      <End Role="SpacecraftInitialData" EntitySet="SpacecraftInitialData" />
+      <End Role="DigitalMap" EntitySet="DigitalMap" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="NU">
+    <Key>
+      <PropertyRef Name="ID_NU" />
+    </Key>
+    <Property Name="ID_NU" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="N_NU" Type="int" Nullable="false" />
+    <Property Name="Modification" Type="int" Nullable="false" />
+    <Property Name="SpacecraftInitialData_ID" Type="int" Nullable="false" />
+    <Property Name="X" Type="float" Nullable="false" />
+    <Property Name="Y" Type="float" Nullable="false" />
+    <Property Name="Z" Type="float" Nullable="false" />
+    <Property Name="VX" Type="float" Nullable="false" />
+    <Property Name="VY" Type="float" Nullable="false" />
+    <Property Name="VZ" Type="float" Nullable="false" />
+    <Property Name="t" Type="float" Nullable="false" />
+    <Property Name="Vitok" Type="int" Nullable="false" />
+    <Property Name="Sbal" Type="float" Nullable="false" />
+    <Property Name="DateNU" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DigitalMap">
+    <Key>
+      <PropertyRef Name="Id_Matr" />
+    </Key>
+    <Property Name="Id_Matr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SpacecraftInitDataId" Type="int" Nullable="false" />
+    <Property Name="Map" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Engine">
+    <Key>
+      <PropertyRef Name="ID_Engine" />
+    </Key>
+    <Property Name="ID_Engine" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NameEngine" Type="nvarchar" MaxLength="50" />
+    <Property Name="Trust" Type="real" Nullable="false" />
+    <Property Name="SpecificImpulse" Type="real" Nullable="false" />
+    <Property Name="FuelAmount" Type="int" />
+    <Property Name="MaxTimeOfWorking" Type="real" />
+    <Property Name="TypeOfEngine" Type="nvarchar" MaxLength="50" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Map">
+    <Key>
+      <PropertyRef Name="Id_Matr" />
+    </Key>
+    <Property Name="Id_Matr" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Map" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MassInertialCharacteristic">
+    <Key>
+      <PropertyRef Name="ID_MIC" />
+    </Key>
+    <Property Name="ID_MIC" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Aero" Type="int" Nullable="false" />
+    <Property Name="Mass" Type="float" Nullable="false" />
+    <Property Name="MassOfCommonBay" Type="float" />
+    <Property Name="MassOfDeorbitSpCr" Type="float" />
+    <Property Name="Sbal" Type="float" />
+    <Property Name="XT" Type="float" />
+    <Property Name="YT" Type="float" />
+    <Property Name="ZT" Type="float" />
+    <Property Name="Liter" Type="nchar" MaxLength="10" />
+    <Property Name="DateOfID" Type="date" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="SpacecraftInitialData">
+    <Key>
+      <PropertyRef Name="SpacecraftInitDataId" />
+    </Key>
+    <Property Name="SpacecraftInitDataId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SpacecraftNumber" Type="int" Nullable="false" />
+    <Property Name="InternationalNumber" Type="nvarchar" MaxLength="10" />
+    <Property Name="CCSANumber" Type="int" />
+    <Property Name="NORADNumber" Type="int" />
+    <Property Name="SpacecraftName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="SpacecraftType" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="OrbitType" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="ReboostBlockType" Type="nvarchar" MaxLength="150" />
+    <Property Name="Launcher" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateOfLaunch" Type="datetime" />
+    <Property Name="MassInerCharacteristicId" Type="int" Nullable="false" />
+    <Property Name="EngineID" Type="int" Nullable="false" />
+    <Property Name="Comments" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="SpacecraftsEngines">
+    <Key>
+      <PropertyRef Name="SpacecragtsEngineId" />
+    </Key>
+    <Property Name="SpacecragtsEngineId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SpacecraftInitDataId" Type="int" Nullable="false" />
+    <Property Name="EngineId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpaceсraftCommonData">
+    <Key>
+      <PropertyRef Name="SpacecraftCommonDataId" />
+    </Key>
+    <Property Name="SpacecraftCommonDataId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SpacecraftInitDataId" Type="int" Nullable="false" />
+    <Property Name="MIC_Id" Type="int" Nullable="false" />
+    <Property Name="EngineId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_NU_SpacecraftInitialData">
+    <End Role="SpacecraftInitialData" Type="Хранилище ISFDSModel.SpacecraftInitialData" Multiplicity="1" />
+    <End Role="NU" Type="Хранилище ISFDSModel.NU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SpacecraftInitialData">
+        <PropertyRef Name="SpacecraftInitDataId" />
+      </Principal>
+      <Dependent Role="NU">
+        <PropertyRef Name="SpacecraftInitialData_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpaceCraftCommonData_MassInertialCharacteristic">
+    <End Role="MassInertialCharacteristic" Type="Хранилище ISFDSModel.MassInertialCharacteristic" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SpaceсraftCommonData" Type="Хранилище ISFDSModel.SpaceсraftCommonData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MassInertialCharacteristic">
+        <PropertyRef Name="ID_MIC" />
+      </Principal>
+      <Dependent Role="SpaceсraftCommonData">
+        <PropertyRef Name="MIC_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpaceCraftCommonData_SpacecraftInitialData">
+    <End Role="SpacecraftInitialData" Type="Хранилище ISFDSModel.SpacecraftInitialData" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SpaceсraftCommonData" Type="Хранилище ISFDSModel.SpaceсraftCommonData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SpacecraftInitialData">
+        <PropertyRef Name="SpacecraftInitDataId" />
+      </Principal>
+      <Dependent Role="SpaceсraftCommonData">
+        <PropertyRef Name="SpacecraftInitDataId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpacecraftInitialData_Engine">
+    <End Role="Engine" Type="Хранилище ISFDSModel.Engine" Multiplicity="1" />
+    <End Role="SpacecraftInitialData" Type="Хранилище ISFDSModel.SpacecraftInitialData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Engine">
+        <PropertyRef Name="ID_Engine" />
+      </Principal>
+      <Dependent Role="SpacecraftInitialData">
+        <PropertyRef Name="EngineID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpacecraftInitialData_MassInertialCharacteristic">
+    <End Role="MassInertialCharacteristic" Type="Хранилище ISFDSModel.MassInertialCharacteristic" Multiplicity="1" />
+    <End Role="SpacecraftInitialData" Type="Хранилище ISFDSModel.SpacecraftInitialData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MassInertialCharacteristic">
+        <PropertyRef Name="ID_MIC" />
+      </Principal>
+      <Dependent Role="SpacecraftInitialData">
+        <PropertyRef Name="MassInerCharacteristicId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpacecraftsEngines_Engine">
+    <End Role="Engine" Type="Хранилище ISFDSModel.Engine" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SpacecraftsEngines" Type="Хранилище ISFDSModel.SpacecraftsEngines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Engine">
+        <PropertyRef Name="ID_Engine" />
+      </Principal>
+      <Dependent Role="SpacecraftsEngines">
+        <PropertyRef Name="EngineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpacecraftsEngines_SpacecraftInitialData">
+    <End Role="SpacecraftInitialData" Type="Хранилище ISFDSModel.SpacecraftInitialData" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SpacecraftsEngines" Type="Хранилище ISFDSModel.SpacecraftsEngines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SpacecraftInitialData">
+        <PropertyRef Name="SpacecraftInitDataId" />
+      </Principal>
+      <Dependent Role="SpacecraftsEngines">
+        <PropertyRef Name="SpacecraftInitDataId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpacecraftsMap_SpacecraftInitialData">
+    <End Role="SpacecraftInitialData" Type="Хранилище ISFDSModel.SpacecraftInitialData" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DigitalMap" Type="Хранилище ISFDSModel.DigitalMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SpacecraftInitialData">
+        <PropertyRef Name="SpacecraftInitDataId" />
+      </Principal>
+      <Dependent Role="DigitalMap">
+        <PropertyRef Name="SpacecraftInitDataId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

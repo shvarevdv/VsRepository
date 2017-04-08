@@ -1,0 +1,161 @@
+﻿@using DataBaseViewer.ViewModels
+@model List<DataBaseViewer.ViewModels.NuViewModel>
+@{
+    ViewBag.Title = "База данных начальных условий";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*<body>
+    <div class="container">
+        <div class="row" style="background: green">
+            <div class="breadcrumbs">Хлебные/крошки/это</div>
+            <div class="breadcrumbs">Хлебные</div>
+            <div class="breadcrumbs">Хлебные</div>
+            <div class="col-lg-4">mx4</div>
+            <div class="col-mx-4">mx4</div>
+            <div class="col-sx-2">sx4</div>
+        </div>
+    </div>
+</body>*@
+
+<body>
+    <article>
+        <header>
+            <h3>Таблица начальных условий</h3>
+        </header>
+        <section>
+            <asp:DataGridView></asp:DataGridView>
+            <div class="container">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Выпадающий список <i class="glyphicon glyphicon-chevron-down"></i></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">НУ</a></li>
+                        <li><a href="#">Инвентарные номера</a></li>
+                        <li><a href="#">КА</a></li>
+                    </ul>
+                </div>
+                <table class=" table table-hover table-bordered table-condensed table-responsive ">
+                    <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(m => m.First().N_NU)</th>
+                        <th>@Html.DisplayNameFor(m => m.First().Vitok)</th>
+                        <th>@Html.DisplayNameFor(m => m.First().DateNU)</th>
+                        <th>@Html.DisplayNameFor(m => m.First().X)</th>
+                        <th>@Html.DisplayNameFor(m => m.First().Y)</th>
+                        <th>@Html.DisplayNameFor(m => m.First().Z)</th>
+                        <th>@Html.DisplayNameFor(m => m.First().Vx)</th>
+                        <th>@Html.DisplayNameFor(m => m.First().Vy)</th>
+                        <th>@Html.DisplayNameFor(m => m.First().Vz)</th>
+                        <th>@Html.DisplayNameFor(m => m.Last().Comment) </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (NuViewModel t in Model)
+                    {
+                        <tr>
+                            <td class="text-left">@t.N_NU</td>
+                            <td class="text-left">@t.Vitok</td>
+                            <td class="text-left">@t.DateNU</td>
+                            <td class="text-left">@t.X</td>
+                            <td class="text-left">@t.Y</td>
+                            <td class="text-left">@t.Z</td>
+                            <td class="text-left">@t.Vx</td>
+                            <td class="text-left">@t.Vy</td>
+                            <td class="text-left">@t.Vz</td>
+                            <td class="text-left">@t.Comment</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+    </article>
+    <article>
+
+        <div class="container" style="background: gainsboro">
+            <header>
+                <h3>Введите новые НУ</h3>
+            </header>
+            <form role="form">
+                <div class="form-group col-sm-4">
+                    <label for="N_NU" class="col-sm-6 control-label">@Html.DisplayNameFor(m => m.First().N_NU)</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" id="N_NU" placeholder="Введите номер НУ"/>
+                    </div>
+
+                    <label for="Vitok" class="col-sm-6 control-label">@Html.DisplayNameFor(m => m.First().Vitok)</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" id="Vitok" placeholder="Введите виток НУ"/>
+                    </div>
+
+                    <label for="DateNu" class="col-sm-6 control-label">@Html.DisplayNameFor(m => m.First().DateNU)</label>
+                    <div class="col-sm-6">
+                        <input type="datetime" class="form-control " id="DateNu" placeholder="Введите время и дату НУ"/>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-4">
+
+                    <label for="X" class="col-sm-4 control-label">@Html.DisplayNameFor(m => m.First().X)</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control" id="X" placeholder="Введите X"/>
+                    </div>
+
+                    <label for="Y" class="col-sm-4 control-label">@Html.DisplayNameFor(m => m.First().Y)</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control" id="Y" placeholder="Введите Y"/>
+                    </div>
+
+                    <label for="Z" class="col-sm-4 control-label">@Html.DisplayNameFor(m => m.First().Z)</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control da" id="Z" placeholder="Введите Z"/>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-4">
+                    <label for="Vx" class="col-sm-2 control-label">@Html.DisplayNameFor(m => m.First().Vx)</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="Vx" placeholder="Введите Vx"/>
+                    </div>
+
+                    <label for="Vy" class="col-sm-2 control-label">@Html.DisplayNameFor(m => m.First().Vy)</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="Vy" placeholder="Введите Vy"/>
+                    </div>
+
+                    <label for="Vz" class="col-sm-2 control-label">@Html.DisplayNameFor(m => m.First().Vz)</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="Vz" placeholder="Введите Vz"/>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-12">
+                    <label for="Coment" style="margin-right: 2px" class="col-sm-2 control-label">@Html.DisplayNameFor(m => m.First().Comment)</label>
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" id="Coment" placeholder="Коментарий"/>
+                    </div>
+                </div>
+
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <div class="col-sm-push-6 col-sm-3">
+                        <button class="btn btn-success col-sm-12 col-xs-12" type="submit">
+                            Записать
+                            <i class="glyphicon glyphicon-plus"></i>
+                        </button>
+                    </div>
+                    <div class="col-sm-offset-6 col-sm-3">
+                        <button class=" btn btn-danger col-sm-12 col-xs-12" type="submit">
+                            Удалить
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div>
+                <div class="slick-cell"></div>
+            </div>
+        </div>
+    </article>
+</body>

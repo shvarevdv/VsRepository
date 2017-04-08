@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseViewer", "DataBaseViewer\DataBaseViewer.csproj", "{BAEB1F88-137D-4B3B-865F-B7A82158563E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseModel", "DataBaseModel\DataBaseModel.csproj", "{32D12032-F48E-42BA-BAAB-74D22A9F3D47}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAEB1F88-137D-4B3B-865F-B7A82158563E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAEB1F88-137D-4B3B-865F-B7A82158563E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAEB1F88-137D-4B3B-865F-B7A82158563E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAEB1F88-137D-4B3B-865F-B7A82158563E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32D12032-F48E-42BA-BAAB-74D22A9F3D47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32D12032-F48E-42BA-BAAB-74D22A9F3D47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32D12032-F48E-42BA-BAAB-74D22A9F3D47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32D12032-F48E-42BA-BAAB-74D22A9F3D47}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
